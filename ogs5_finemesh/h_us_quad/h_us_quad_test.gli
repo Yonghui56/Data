@@ -1,0 +1,40 @@
+#POINTS
+0 0 0 0 $MD 0 $NAME 0
+1 0.2 0 0 $MD 0 $NAME 1
+2 0.4 0 0 $MD 0 $NAME 2
+3 0.4 0 2.0 $MD 0 $NAME 3
+4 0.2 0 2.0 $MD 0 $NAME 4
+5 0.0 0 2.0 $MD 0 $NAME 5
+#POLYLINE
+ $NAME
+  ALL
+ $POINTS
+  0
+  1
+  2
+  3
+  4
+  5
+  0
+#POLYLINE
+ $NAME
+  BOTTOM
+ $POINTS
+  0
+  1
+  2
+#POLYLINE
+ $NAME
+  TOP
+ $POINTS
+  5
+  4
+  3
+#SURFACE
+ $NAME
+  SURF_0
+ $POLYLINES
+  ALL
+ $TYPE
+  0
+#STOP

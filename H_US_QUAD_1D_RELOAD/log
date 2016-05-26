@@ -1,0 +1,180 @@
+
+          ###################################################
+          ##                                               ##
+          ##               OpenGeoSys-Project              ##
+          ##                                               ##
+          ##  Helmholtz Center for Environmental Research  ##
+          ##    UFZ Leipzig - Environmental Informatics    ##
+          ##                  TU Dresden                   ##
+          ##              University of Kiel               ##
+          ##            University of Edinburgh            ##
+          ##         University of Tuebingen (ZAG)         ##
+          ##       Federal Institute for Geosciences       ##
+          ##          and Natural Resources (BGR)          ##
+          ##  German Research Centre for Geosciences (GFZ) ##
+          ##                                               ##
+          ##    Version 5.7(WH/WW/LB)  Date 07.07.2015     ##
+          ##                                               ##
+          ###################################################
+
+          File name (without extension): h_us_quad
+            
+---------------------------------------------
+Data input:
+GEOLIB::readGLIFile open stream from file h_us_quad.gli ... done
+read points from stream ...  ok, 2 points read
+read polylines from stream ...  ok, 1 polylines read
+read surfaces from stream ... triangulation of surface: ... done - 0 triangles 
+ ok, 1 surfaces read
+PCSRead ... done, read 1 processes
+MFPRead
+BCRead ... done, read 2 boundary conditions
+STRead ... Warning in CSourceTerm::ReadDistributionType (): Zero is set to the distribution type CONSTANT, which actually does nothing. There might be a mistake in yoru ST file. 
+done, read 1 source terms
+ICRead
+OUTRead
+TIMRead
+MMPRead ... 
+--
+ Adopting capillary pressure saturation parameters from the
+ relative permeability function for phase 0. Alternatively, you
+ may enter capillary pressure specific parameters directly.
+--/ndone, read 1 medium properties
+NUMRead
+ --
+ Using old $NON_LINEAR_SOLVER keyword.
+ Eventually this will be obsolete. Consider switching to
+ $NON_LINEAR_ITERATIONS for better results and greater flexibility.
+ --
+MSHRead:  ASCII file
+Executing ConstructGrid() ...  done.
+CURRead
+DOMRead: no DDC file
+---------------------------------------------
+Create PCS processes
+.............................................
+Create: RICHARDS_FLOW
+
+->Create MMP
+->Create NUM
+->Create EQS
+->Create TIM
+->Create BC
+	[BC] set BC took 0
+	[BC] set transient BC took 0
+->Create ST
+->Config ELE values
+->Config NOD values
+->Assign IC
+->  Gass flow is formulated as mass balance.
+RFR: no restart data
+Checking output data 
+
+
+***Start time steps
+
+
+#############################################################
+Time step: 1|  Time: 5|  Time step size: 5
+
+      ================================================
+    ->Process 0: RICHARDS_FLOW
+      ================================================
+    PCS non-linear iteration: 0/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 0/20
+         PCS error: 35.8881
+         ->Euclidian norm of unknowns: 38.3441
+    PCS non-linear iteration: 1/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 1/20
+         PCS error: 0.154694
+         ->Euclidian norm of unknowns: 0.170716
+    PCS non-linear iteration: 2/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 2/20
+         PCS error: 0.000668796
+         ->Euclidian norm of unknowns: 0.000738979
+->Calculate velocity
+
+This step is accepted.
+
+#############################################################
+
+
+#############################################################
+Time step: 2|  Time: 10|  Time step size: 5
+
+      ================================================
+    ->Process 0: RICHARDS_FLOW
+      ================================================
+    PCS non-linear iteration: 0/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 0/20
+         PCS error: 35.9104
+         ->Euclidian norm of unknowns: 38.3699
+    PCS non-linear iteration: 1/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 1/20
+         PCS error: 0.153819
+         ->Euclidian norm of unknowns: 0.16982
+    PCS non-linear iteration: 2/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 2/20
+         PCS error: 0.000660896
+         ->Euclidian norm of unknowns: 0.00073056
+->Calculate velocity
+
+This step is accepted.
+
+#############################################################
+
+
+#############################################################
+Time step: 3|  Time: 15|  Time step size: 5
+
+      ================================================
+    ->Process 0: RICHARDS_FLOW
+      ================================================
+    PCS non-linear iteration: 0/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 0/20
+         PCS error: 35.9311
+         ->Euclidian norm of unknowns: 38.3941
+    PCS non-linear iteration: 1/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 1/20
+         PCS error: 0.152939
+         ->Euclidian norm of unknowns: 0.168918
+    PCS non-linear iteration: 2/20
+      Assembling equation system...
+      Calling linear solver...
+      -->End of PICARD iteration: 2/20
+         PCS error: 0.000653029
+         ->Euclidian norm of unknowns: 0.000722171
+->Calculate velocity
+
+This step is accepted.
+
+#############################################################
+
+----------------------------------------------------
+
+For process: RICHARDS_FLOW
+No time control for this process.
+Number of non-converged iterations: 0
+Number of stagnated iterations:     0
+
+----------------------------------------------------
+GetRFProcessProcessingAndActivation - to be removed
+
+^O^: Your simulation is terminated normally ^O^ 
+Simulation time: 0s

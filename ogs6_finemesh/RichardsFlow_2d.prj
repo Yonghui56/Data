@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<OpenGeoSysProject>
+    <mesh>Richards_2d1.vtu</mesh>
+    <geometry>Richards_2d1.gml</geometry>
+
+    <processes>
+        <process>
+            <name>GW23</name>
+            <type>RICHARDS_FLOW</type>
+			<process_variables>
+				<process_variable>pressure</process_variable>
+            </process_variables>
+			<intrinsic_permeability>K</intrinsic_permeability>
+			<porosity>poro</porosity>
+			<viscosity>mu</viscosity>
+            <nonlinear_solver>basic_picard</nonlinear_solver>
+            <time_discretization><type>BackwardEuler</type></time_discretization>
+			<g>true</g>
+			 <output>
+                <variables>
+                    <variable>pressure</variable>
+                    <variable>S</variable>
+                </variables>
+            </output>
+			<secondary_variables>
+                <saturation>S</saturation>
+            </secondary_variables>
+        </process>
+    </processes>
+
+    <parameters>
+        <parameter>
+            <name>K</name>
+            <type>Constant</type>
+            <value>4.46e-13</value>
+        </parameter>
+		<parameter>
+            <name>poro</name>
+            <type>Constant</type>
+            <value>0.38</value>
+        </parameter>
+		<parameter>
+            <name>mu</name>
+            <type>Constant</type>
+            <value>1e-3</value>
+        </parameter>
+    </parameters>
+
+    <process_variables>
+        <process_variable>
+            <name>pressure</name>
+            <components>1</components>
+
+            <initial_condition>
+                <type>Uniform</type>
+                <value>-21500.</value>
+            </initial_condition>
+
+            <boundary_conditions>
+                <boundary_condition>
+                    <geometrical_set>quad_geometry</geometrical_set>
+                    <geometry>BOTTOM</geometry>
+                    <type>UniformDirichlet</type>
+                    <value>-21500.</value>
+                </boundary_condition>
+
+                <boundary_condition>
+                    <geometrical_set>quad_geometry</geometrical_set>
+                    <geometry>TOP</geometry>
+                    <type>UniformDirichlet</type>
+                    <value>0.</value>
+                </boundary_condition>
+            </boundary_conditions>
+
+            <source_terms>
+            </source_terms>
+        </process_variable>
+    </process_variables>
+
+    <nonlinear_solvers>
+        <nonlinear_solver>
+            <name>basic_picard</name>
+            <type>Picard</type>
+            <tol>1e-3</tol>
+            <max_iter>30</max_iter>
+            <linear_solver>general_linear_solver</linear_solver>
+        </nonlinear_solver>
+    </nonlinear_solvers>
+
+    <linear_solvers>
+        <linear_solver>
+            <name>general_linear_solver</name>
+            <lis>-i cg -p jacobi -tol 1e-16 -maxiter 10000</lis>
+            <eigen>
+                <solver_type>BiCGSTAB</solver_type>
+                <precon_type>none</precon_type>
+                <max_iteration_step>10000</max_iteration_step>
+                <error_tolerance>1e-16</error_tolerance>
+            </eigen>
+            <petsc>
+                <prefix>gw</prefix>
+                <parameters>-gw_ksp_type cg -gw_pc_type bjacobi -gw_ksp_rtol 1e-16 -gw_ksp_max_it 10000</parameters>
+            </petsc>
+        </linear_solver>
+    </linear_solvers>
+
+     <time_stepping>
+        <type>FixedTimeStepping</type>
+		<t_initial>0.0</t_initial>
+		<t_end>15000</t_end>
+		<timesteps>
+		<pair><repeat>3000</repeat><delta_t>5</delta_t></pair>
+		</timesteps>
+    </time_stepping>
+
+    <output>
+        <type>VTK</type>
+        <prefix>Richards_2d1</prefix>
+    </output>
+	<curves>
+        <curve>
+            <name>curveA</name>
+            <coords>1421.99634	1707.55369	2050.45507	2462.21599	2892.29884	3232.80969	3590.71602	3988.24638	4429.78757	4920.21206	5464.93174	9238.24221	10261.0136	12658.7874	15616.8683	26399.6732	44627.5611
+</coords>
+            <values>1	0.98684211	0.97368421	0.96052632	0.94894737	0.92105263	0.89473684	0.86842105	0.84210526	0.81578947	0.78947368	0.65789474	0.63157895	0.57894737	0.52631579	0.39473684	0.26315789
+</values>
+        </curve>
+		<curve>
+            <name>curveB</name>
+            <coords>0.26315789	0.39473684	0.52631579	0.57894737	0.63157895	0.65789474	0.78947368	0.81578947	0.84210526	0.86842105	0.89473684	0.92105263	0.94894737	0.96052632	0.97368421	0.98684211	1
+</coords>
+            <values>4.43E-05	0.00026547	0.00159003	0.00325358	0.00665757	0.00952343	0.05704014	0.08159396	0.11671736	0.16696017	0.23883078	0.34163922	0.49931406	0.58449912	0.69907308	0.8361059	1
+</values>
+        </curve>
+    </curves>
+
+</OpenGeoSysProject>

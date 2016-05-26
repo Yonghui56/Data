@@ -1,0 +1,60 @@
+debug: Project configuration from file 'RichardsFlow_1d.prj' read.
+debug: Reading geometry file 'Richards_1d1.gml'.
+debug: Project configuration from file 'Richards_1d1.gml' read.
+debug: Reading curves configuration.
+debug: Parse process variables:
+debug: Constructing process variable pressure
+debug: Using value -21500
+debug: Found geometry type "POINT"
+debug: Constructing UniformDirichletBoundaryCondition from config.
+debug: Using value -21500
+debug: Found geometry type "POINT"
+debug: Constructing UniformDirichletBoundaryCondition from config.
+debug: Using value 0
+debug: Reading parameters:
+info: ConstantParameter: K.
+debug: Using value 4.46e-013
+info: ConstantParameter: poro.
+debug: Using value 0.38
+info: ConstantParameter: mu.
+debug: Using value 0.001
+debug: Reading processes:
+debug: Parse output configuration:
+debug: Reading time loop configuration.
+debug: Reading linear solver configuration.
+debug: Reading linear solver configuration.
+debug: Create RichardsFlowProcess.
+debug: Found process variable 'pressure' for config tag <process_variable>.
+debug: Found parameter 'K'.
+debug: Use 'K' as intrinsic_permeability parameter.
+debug: Found parameter 'poro'.
+debug: Use 'poro' as porosity parameter.
+debug: Found parameter 'mu'.
+debug: Use 'mu' as viscosity parameter.
+info: Initialize processes.
+debug: Initialize process.
+debug: Construct dof mappings.
+debug: Compute sparsity pattern
+debug: Create global assembler.
+debug: Create local assemblers.
+debug: Create local assemblers.
+debug: Calling local assembler builder for all mesh elements.
+debug: Initialize boundary conditions.
+debug: Constructing MeshNodeSearcher obj.
+debug: Calculated search length for mesh "line_1000" is 1.000000e-009.
+info: Solve processes.
+debug: Set initial conditions.
+debug: output to Richards_1d1_pcs_0_ts_0_t_0.000000.vtu
+debug: Process output.
+debug: Writing output to 'Richards_1d1_pcs_0_ts_0_t_0.000000.vtu'.
+debug: Assemble RichardsFlowProcess.
+info: ------------------------------------------------------------------
+info: *** Eigen solver computation
+info: -> solve
+error: Failed during Eigen linear solve
+info: ------------------------------------------------------------------
+error: The linear solver failed.
+error: The nonlinear solver failed in timestep #1 at t = 0.05 s for process #0.
+debug: output to Richards_1d1_pcs_0_ts_1_t_0.050000.vtu
+debug: Process output.
+debug: Writing output to 'Richards_1d1_pcs_0_ts_1_t_0.050000.vtu'.
